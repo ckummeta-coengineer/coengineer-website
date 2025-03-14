@@ -29,27 +29,6 @@ export default function About() {
     },
   ];
 
-  const teamMembers = [
-    {
-      name: 'Sarah Chen',
-      role: 'Chief Technology Officer',
-      image: '/team/sarah.jpg',
-      expertise: 'Cloud Architecture & AI',
-    },
-    {
-      name: 'Michael Rodriguez',
-      role: 'Lead Software Architect',
-      image: '/team/michael.jpg',
-      expertise: 'Enterprise Solutions',
-    },
-    {
-      name: 'Emily Taylor',
-      role: 'Senior Project Manager',
-      image: '/team/emily.jpg',
-      expertise: 'Agile & DevOps',
-    },
-  ];
-
   const achievements = [
     {
       icon: GlobeAmericasIcon,
@@ -126,32 +105,6 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto container-padding">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Leadership Team</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Meet the experts behind our success
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="card text-center group">
-                <div className="relative mb-6">
-                  <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 bg-gray-200">
-                    {/* Add actual images later */}
-                    <div className="w-full h-full bg-gradient-to-br from-primary-100 to-accent-100"></div>
-                  </div>
-                  <h3 className="text-xl font-bold">{member.name}</h3>
-                  <p className="text-primary-600">{member.role}</p>
-                </div>
-                <p className="text-gray-600">{member.expertise}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
