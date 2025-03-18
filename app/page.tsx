@@ -1,4 +1,6 @@
-import Head from 'next/head';
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
 import { 
   CodeBracketIcon, 
@@ -11,8 +13,25 @@ import {
   ShieldCheckIcon
 } from '@heroicons/react/24/outline';
 
+interface Service {
+  title: string;
+  description: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  features: string[];
+}
+
+interface Stat {
+  label: string;
+  value: string;
+}
+
+interface Technology {
+  name: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+
 export default function Home() {
-  const services = [
+  const services: Service[] = [
     {
       title: 'Custom Software Development',
       description: 'Tailored solutions built with cutting-edge technology to solve your unique business challenges.',
@@ -33,14 +52,14 @@ export default function Home() {
     },
   ];
 
-  const stats = [
+  const stats: Stat[] = [
     { label: 'Projects Delivered', value: '100+' },
     { label: 'Happy Clients', value: '50+' },
     { label: 'Team Members', value: '25+' },
     { label: 'Years Experience', value: '10+' },
   ];
 
-  const technologies = [
+  const technologies: Technology[] = [
     { name: 'Cloud Services', icon: CloudIcon },
     { name: 'Data Analytics', icon: ChartBarIcon },
     { name: 'Security', icon: ShieldCheckIcon },
@@ -49,12 +68,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>CoEngineer - Software Consultancy</title>
-        <meta name="description" content="Professional software consultancy services" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-700 via-primary-600 to-accent-600 animate-gradient"></div>
@@ -199,24 +212,19 @@ export default function Home() {
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <CheckCircleIcon className="h-6 w-6 text-accent-500 mr-3 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium mb-1">Expert Team</h4>
-                    <p className="text-gray-300">Seasoned professionals with diverse technical expertise</p>
-                  </div>
+                  <span>Expert team with proven track record</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircleIcon className="h-6 w-6 text-accent-500 mr-3 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium mb-1">Proven Track Record</h4>
-                    <p className="text-gray-300">Successfully delivered 100+ projects across industries</p>
-                  </div>
+                  <span>Cutting-edge technology solutions</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircleIcon className="h-6 w-6 text-accent-500 mr-3 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium mb-1">Cutting-edge Solutions</h4>
-                    <p className="text-gray-300">Using the latest technologies and best practices</p>
-                  </div>
+                  <span>Agile development methodology</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircleIcon className="h-6 w-6 text-accent-500 mr-3 flex-shrink-0" />
+                  <span>Dedicated support and maintenance</span>
                 </li>
               </ul>
             </div>

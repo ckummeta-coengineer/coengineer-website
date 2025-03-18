@@ -1,4 +1,5 @@
-import Head from 'next/head';
+'use client';
+
 import Link from 'next/link';
 import { 
   UserGroupIcon, 
@@ -49,11 +50,6 @@ export default function About() {
 
   return (
     <>
-      <Head>
-        <title>About Us - CoEngineer</title>
-        <meta name="description" content="Learn about CoEngineer software consultancy" />
-      </Head>
-
       <div className="relative bg-gradient-to-br from-primary-700 via-primary-600 to-accent-600 text-white py-24">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="max-w-7xl mx-auto container-padding relative">

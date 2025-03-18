@@ -1,4 +1,6 @@
-import Head from 'next/head';
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
 import { 
   CodeBracketIcon, 
@@ -15,8 +17,22 @@ import {
   CogIcon
 } from '@heroicons/react/24/outline';
 
+interface Service {
+  title: string;
+  description: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  features: string[];
+  technologies: string[];
+}
+
+interface Specialty {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  description: string;
+}
+
 export default function Services() {
-  const services = [
+  const services: Service[] = [
     {
       title: 'Custom Software Development',
       description: 'End-to-end development of tailored software solutions that perfectly match your business requirements.',
@@ -91,7 +107,7 @@ export default function Services() {
     }
   ];
 
-  const specialties = [
+  const specialties: Specialty[] = [
     {
       icon: DevicePhoneMobileIcon,
       title: 'Mobile Development',
@@ -116,11 +132,6 @@ export default function Services() {
 
   return (
     <>
-      <Head>
-        <title>Services - CoEngineer</title>
-        <meta name="description" content="Professional software consultancy services" />
-      </Head>
-
       <div className="relative bg-gradient-to-br from-primary-700 via-primary-600 to-accent-600 text-white py-24">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="max-w-7xl mx-auto container-padding relative">
@@ -199,7 +210,7 @@ export default function Services() {
                 <div className="inline-block p-4 rounded-full bg-primary-50 group-hover:bg-primary-100 transition-colors mb-4">
                   <specialty.icon className="h-8 w-8 text-primary-600" />
                 </div>
-                <h3 className="text-lg font-bold mb-2">{specialty.title}</h3>
+                <h3 className="text-xl font-bold mb-2">{specialty.title}</h3>
                 <p className="text-gray-600">{specialty.description}</p>
               </div>
             ))}
@@ -209,63 +220,15 @@ export default function Services() {
 
       <section className="relative bg-secondary-900 text-white py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-700/20 via-transparent to-accent-600/20 animate-gradient"></div>
-        <div className="relative max-w-7xl mx-auto container-padding">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Start Your Project?
-              </h2>
-              <p className="text-xl mb-8 text-gray-300">
-                Let's discuss how we can help you achieve your goals with our expert software solutions.
-              </p>
-              <Link href="/contact" 
-                className="inline-flex items-center btn-primary bg-accent-500 hover:bg-accent-600 group">
-                Get in Touch
-                <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-6">Our Process</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center mr-3">
-                    1
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Discovery</h4>
-                    <p className="text-gray-300">Understanding your needs and objectives</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center mr-3">
-                    2
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Planning</h4>
-                    <p className="text-gray-300">Developing a comprehensive solution strategy</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center mr-3">
-                    3
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Development</h4>
-                    <p className="text-gray-300">Building your solution with regular updates</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-500 flex items-center justify-center mr-3">
-                    4
-                  </div>
-                  <div>
-                    <h4 className="font-medium mb-1">Launch & Support</h4>
-                    <p className="text-gray-300">Ensuring smooth deployment and ongoing maintenance</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <div className="relative max-w-7xl mx-auto container-padding text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            Ready to Start Your Project?
+          </h2>
+          <Link href="/contact" 
+            className="inline-flex items-center btn-primary bg-accent-500 hover:bg-accent-600 group">
+            Get Started
+            <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </section>
     </>

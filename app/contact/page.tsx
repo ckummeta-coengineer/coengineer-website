@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import Head from 'next/head';
+'use client';
+
+import React, { useState } from 'react';
 import { EnvelopeIcon, PhoneIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 interface FormData {
@@ -48,11 +49,6 @@ export default function Contact() {
 
   return (
     <>
-      <Head>
-        <title>Contact Us - CoEngineer</title>
-        <meta name="description" content="Get in touch with CoEngineer software consultancy" />
-      </Head>
-
       <div className="relative bg-gradient-to-br from-primary-700 via-primary-600 to-accent-600 text-white py-24">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="max-w-7xl mx-auto container-padding relative">
